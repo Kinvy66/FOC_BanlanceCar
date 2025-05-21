@@ -83,6 +83,8 @@ void Error_Handler(void);
 #define M2_ADC2_IN8_GPIO_Port GPIOB
 #define M2_ADC2_IN9_Pin GPIO_PIN_1
 #define M2_ADC2_IN9_GPIO_Port GPIOB
+#define M_EN_Pin GPIO_PIN_2
+#define M_EN_GPIO_Port GPIOB
 #define M2_CS_Pin GPIO_PIN_12
 #define M2_CS_GPIO_Port GPIOB
 #define M2_PWM1_Pin GPIO_PIN_6
