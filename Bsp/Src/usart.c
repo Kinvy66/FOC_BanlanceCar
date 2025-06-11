@@ -9,8 +9,8 @@ uint8_t Rx1_buffer[BUFFER_SIZE];
 uint8_t Tx2_buffer[BUFFER_SIZE];
 uint8_t Rx2_buffer[BUFFER_SIZE];
 
-u8 Tx1_Flag = 0;//0:ÕÍ≥… 1£∫’˝‘⁄∑¢ÀÕ
-u8 Tx2_Flag = 0;//0:ÕÍ≥… 1£∫’˝‘⁄∑¢ÀÕ
+u8 Tx1_Flag = 0;//0:ÂÆåÊàê 1ÔºöÊ≠£Âú®ÂèëÈÄÅ
+u8 Tx2_Flag = 0;//0:ÂÆåÊàê 1ÔºöÊ≠£Âú®ÂèëÈÄÅ
 
 void Dma_rx1(void)
 {
@@ -55,12 +55,12 @@ void Dma_tx1(void)
 
   /* config flexible dma for usart3 tx */
   dma_flexible_config(DMA1, FLEX_CHANNEL4, DMA_FLEXIBLE_UART1_TX);
-	
+
 	nvic_priority_group_config(NVIC_PRIORITY_GROUP_4);
   nvic_irq_enable(DMA1_Channel4_IRQn, 2, 0);
-	
-	dma_interrupt_enable(DMA1_CHANNEL4,DMA_FDT_INT,TRUE); // ø™∆Ù∑¢ÀÕ÷–∂œ
-} 
+
+	dma_interrupt_enable(DMA1_CHANNEL4,DMA_FDT_INT,TRUE); // ÂºÄÂêØÂèëÈÄÅ‰∏≠Êñ≠
+}
 
 void Dma_rx2(void)
 {
@@ -105,11 +105,11 @@ void Dma_tx2(void)
 
   /* config flexible dma for usart3 tx */
   dma_flexible_config(DMA1, FLEX_CHANNEL7, DMA_FLEXIBLE_UART2_TX);
-	
+
 	nvic_priority_group_config(NVIC_PRIORITY_GROUP_4);
   nvic_irq_enable(DMA1_Channel7_IRQn, 3, 0);
-	
-	dma_interrupt_enable(DMA1_CHANNEL7,DMA_FDT_INT,TRUE); // ø™∆Ù∑¢ÀÕ÷–∂œ
+
+	dma_interrupt_enable(DMA1_CHANNEL7,DMA_FDT_INT,TRUE); // ÂºÄÂêØÂèëÈÄÅ‰∏≠Êñ≠
 }
 
 void USART1_init(u32 bound)
@@ -139,17 +139,17 @@ void USART1_init(u32 bound)
 	usart_init(USART1, bound, USART_DATA_8BITS, USART_STOP_1_BIT);
 	usart_transmitter_enable(USART1, TRUE);
 	usart_receiver_enable(USART1, TRUE);
-	
+
 	usart_dma_transmitter_enable(USART1, TRUE);
 	usart_dma_receiver_enable(USART1, TRUE);
 	usart_enable(USART1, TRUE);
-	
+
 	nvic_priority_group_config(NVIC_PRIORITY_GROUP_4);
   nvic_irq_enable(USART1_IRQn, 3, 1);
-	
-	usart_interrupt_enable(USART1,USART_IDLE_INT,TRUE); // ¥Æø⁄ø’œ–÷–∂œ
+
+	usart_interrupt_enable(USART1,USART_IDLE_INT,TRUE); // ‰∏≤Âè£Á©∫Èó≤‰∏≠Êñ≠
 //	usart_interrupt_enable(USART3, USART_RDBF_INT, FALSE);
-	
+
 	Dma_tx1();
 	Dma_rx1();
 }
@@ -163,7 +163,7 @@ void USART2_init(u32 bound)
 	crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
   crm_periph_clock_enable(CRM_IOMUX_PERIPH_CLOCK, TRUE);
 	gpio_pin_remap_config(USART1_GMUX_0001,TRUE);
-	
+
 	gpio_default_para_init(&gpio_init_struct);
 
 	gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
@@ -183,23 +183,23 @@ void USART2_init(u32 bound)
 	usart_init(USART2, bound, USART_DATA_8BITS, USART_STOP_1_BIT);
 	usart_transmitter_enable(USART2, TRUE);
 	usart_receiver_enable(USART2, TRUE);
-	
+
 	usart_dma_transmitter_enable(USART2, TRUE);
 	usart_dma_receiver_enable(USART2, TRUE);
 	usart_enable(USART2, TRUE);
-	
+
 	nvic_priority_group_config(NVIC_PRIORITY_GROUP_4);
   nvic_irq_enable(USART2_IRQn, 3, 2);
-	
-	usart_interrupt_enable(USART2,USART_IDLE_INT,TRUE); // ¥Æø⁄ø’œ–÷–∂œ
+
+	usart_interrupt_enable(USART2,USART_IDLE_INT,TRUE); // ‰∏≤Âè£Á©∫Èó≤‰∏≠Êñ≠
 //	usart_interrupt_enable(USART3, USART_RDBF_INT, FALSE);
-	
+
 	Dma_tx2();
 	Dma_rx2();
 }
 
 uint32_t UART1_SendDataDMA(uint8_t *data, uint16_t len)
-{  
+{
 	memcpy((void*)Tx1_buffer,data,len);
 	usart_dma_transmitter_enable(USART1, TRUE);
 	dma_channel_enable(DMA1_CHANNEL4, FALSE);
@@ -209,7 +209,7 @@ uint32_t UART1_SendDataDMA(uint8_t *data, uint16_t len)
 }
 
 uint32_t UART2_SendDataDMA(uint8_t *data, uint16_t len)
-{  
+{
 	memcpy((void*)Tx2_buffer,data,len);
 	usart_dma_transmitter_enable(USART2, TRUE);
 	dma_channel_enable(DMA1_CHANNEL7, FALSE);
@@ -225,18 +225,18 @@ void USART1_IRQHandler(void)//rx_buffer
 //  {
 //    usart_data_receive(USART3);
 //  }
-  if(usart_flag_get(USART1, USART_IDLEF_FLAG)  != RESET)  
-	{ 					
+  if(usart_flag_get(USART1, USART_IDLEF_FLAG)  != RESET)
+	{
 		usart_flag_clear(USART1, USART_IDLEF_FLAG);
-		len = BUFFER_SIZE - dma_data_number_get(DMA1_CHANNEL5);	
-		
+		len = BUFFER_SIZE - dma_data_number_get(DMA1_CHANNEL5);
+
     if(len < 128)memcpy(GET_USART1_Data,Rx1_buffer,len);
 		dma_channel_enable(DMA1_CHANNEL5, FALSE);
 		dma_data_number_set(DMA1_CHANNEL5,BUFFER_SIZE);
 		dma_channel_enable(DMA1_CHANNEL5, TRUE);
-	
-		U1_IDLE_Flag = 1;					
-	}     
+
+		U1_IDLE_Flag = 1;
+	}
 }
 
 void USART2_IRQHandler(void)//rx_buffer
@@ -246,35 +246,35 @@ void USART2_IRQHandler(void)//rx_buffer
 //  {
 //    usart_data_receive(USART3);
 //  }
-  if(usart_flag_get(USART2, USART_IDLEF_FLAG)  != RESET)  
-	{ 					
+  if(usart_flag_get(USART2, USART_IDLEF_FLAG)  != RESET)
+	{
 		usart_flag_clear(USART2, USART_IDLEF_FLAG);
-		len = BUFFER_SIZE - dma_data_number_get(DMA1_CHANNEL6);	
+		len = BUFFER_SIZE - dma_data_number_get(DMA1_CHANNEL6);
 		if(len < 128)memcpy(GET_USART2_Data,Rx2_buffer,len);
 		dma_channel_enable(DMA1_CHANNEL6, FALSE);
 		dma_data_number_set(DMA1_CHANNEL6,BUFFER_SIZE);
 		dma_channel_enable(DMA1_CHANNEL6, TRUE);
-	
-		U2_IDLE_Flag = 1;					
-	}     
+
+		U2_IDLE_Flag = 1;
+	}
 }
 
-//¥Æø⁄1∑¢ÀÕÕÍ≥…÷–∂œ¥¶¿Ì∫Ø ˝
+//‰∏≤Âè£1ÂèëÈÄÅÂÆåÊàê‰∏≠Êñ≠Â§ÑÁêÜÂáΩÊï∞
 void DMA1_Channel4_IRQHandler(void)
 {
 	if(dma_flag_get(DMA1_FDT4_FLAG))
 	{
-		dma_flag_clear(DMA1_FDT4_FLAG); //«Â≥˝»´≤ø÷–∂œ±Í÷æ
+		dma_flag_clear(DMA1_FDT4_FLAG); //Ê∏ÖÈô§ÂÖ®ÈÉ®‰∏≠Êñ≠Ê†áÂøó
 		Tx1_Flag = 0;
 	}
 }
 
-//¥Æø⁄2∑¢ÀÕÕÍ≥…÷–∂œ¥¶¿Ì∫Ø ˝
+//‰∏≤Âè£2ÂèëÈÄÅÂÆåÊàê‰∏≠Êñ≠Â§ÑÁêÜÂáΩÊï∞
 void DMA1_Channel7_IRQHandler(void)
 {
 	if(dma_flag_get(DMA1_FDT7_FLAG))
 	{
-		dma_flag_clear(DMA1_FDT7_FLAG); //«Â≥˝»´≤ø÷–∂œ±Í÷æ
+		dma_flag_clear(DMA1_FDT7_FLAG); //Ê∏ÖÈô§ÂÖ®ÈÉ®‰∏≠Êñ≠Ê†áÂøó
 		Tx2_Flag = 0;
 	}
 }

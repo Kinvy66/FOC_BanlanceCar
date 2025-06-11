@@ -35,13 +35,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5ddb7b3-e6ba-4231-96c8-47ea2f5866b7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Bsp/Inc/key.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bsp/Src/key.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/inc/app.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/app.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bsp/Inc/led.h" beforeDir="false" afterPath="$PROJECT_DIR$/Bsp/Inc/led.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bsp/Src/led.c" beforeDir="false" afterPath="$PROJECT_DIR$/Bsp/Src/led.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FOC_BanlanceCar.ATWP" beforeDir="false" afterPath="$PROJECT_DIR$/FOC_BanlanceCar.ATWP" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake/at32_workbench/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake/at32_workbench/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries/cmsis/cm4/core_support/arm_math.h" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/cmsis/cm4/core_support/arm_math.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/inc/at32f413_conf.h" beforeDir="false" afterPath="$PROJECT_DIR$/project/inc/at32f413_conf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/inc/at32f413_wk_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/project/inc/at32f413_wk_config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/at32f413_wk_config.c" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/at32f413_wk_config.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/wk_adc.c" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/wk_adc.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +125,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1749622487612</updated>
-      <workItem from="1749622491704" duration="2725000" />
+      <workItem from="1749622491704" duration="4775000" />
     </task>
     <servers />
   </component>

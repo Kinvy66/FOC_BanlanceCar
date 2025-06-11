@@ -32,12 +32,13 @@
 #include "wk_spi.h"
 #include "wk_tmr.h"
 #include "wk_usart.h"
+#include "wk_dma.h"
 #include "wk_gpio.h"
 #include "wk_system.h"
 
 /* private includes ----------------------------------------------------------*/
 /* add user code begin private includes */
-
+#include "app.h"
 /* add user code end private includes */
 
 /* private typedef -----------------------------------------------------------*/
@@ -97,34 +98,44 @@ int main(void)
   wk_timebase_init();
 
   /* init gpio function. */
-  wk_gpio_config();
+  // wk_gpio_config();
+
+  /* init dma1 channel1 */
+  // wk_dma1_channel1_init();
+  /* config dma channel transfer parameter */
+  /* user need to modify define values DMAx_CHANNELy_XXX_BASE_ADDR and DMAx_CHANNELy_BUFFER_SIZE in at32xxx_wk_config.h */
+  // wk_dma_channel_config(DMA1_CHANNEL1,
+  //                       (uint32_t)&ADC1->odt,
+  //                       DMA1_CHANNEL1_MEMORY_BASE_ADDR,
+  //                       DMA1_CHANNEL1_BUFFER_SIZE);
+  // dma_channel_enable(DMA1_CHANNEL1, TRUE);
 
   /* init usart2 function. */
-  wk_usart2_init();
+  // wk_usart2_init();
 
   /* init spi1 function. */
-  wk_spi1_init();
+  // wk_spi1_init();
 
   /* init spi2 function. */
-  wk_spi2_init();
+  // wk_spi2_init();
 
   /* init adc1 function. */
-  wk_adc1_init();
+  // wk_adc1_init();
 
   /* init adc2 function. */
-  wk_adc2_init();
+  // wk_adc2_init();
 
   /* init exint function. */
-  wk_exint_config();
+  // wk_exint_config();
 
   /* init tmr1 function. */
-  wk_tmr1_init();
+  // wk_tmr1_init();
 
   /* init tmr8 function. */
-  wk_tmr8_init();
+  // wk_tmr8_init();
 
   /* add user code begin 2 */
-
+  app_main();
   /* add user code end 2 */
 
   while(1)

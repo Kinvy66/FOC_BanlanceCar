@@ -177,12 +177,12 @@ void ADC1_2_IRQHandler(void)
   if(adc_flag_get(ADC1, ADC_PCCE_FLAG) != RESET)
   {
     adc_flag_clear(ADC1, ADC_PCCE_FLAG);
-		M1_FOC_handle(Read_M1_Encoder());
+		// M1_FOC_handle(Read_M1_Encoder());
   }
 	if(adc_flag_get(ADC2, ADC_PCCE_FLAG) != RESET)
   {
     adc_flag_clear(ADC2, ADC_PCCE_FLAG);
-		M2_FOC_handle(Read_M2_Encoder());
+		// M2_FOC_handle(Read_M2_Encoder());
   }
 }
 

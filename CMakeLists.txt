@@ -71,4 +71,5 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     at32_workbench
 
     # Add user defined libraries
+#    ./bsp/src/AT32F413RC_FOC_LIB.lib
 )
