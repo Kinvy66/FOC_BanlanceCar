@@ -1,4 +1,13 @@
-
+/************************************************
+ * ADC 引脚分配
+ * PB0 |  ADC2_IN8   | M2_A
+ * PB1 |  ADC2_IN9   | M2_B
+ * PC0 |  ADC2_IN10  | BAT
+ * PC4 |  ADC1_IN14  | M1_A
+ * PC5 |  ADC1_IN15  | M1_B
+ *
+ *
+ ************************************************/
 #include "app.h"
 
 uint16_t ADC_ConvertedValue[2];

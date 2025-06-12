@@ -9,40 +9,40 @@ void SPI1_Init(void)
 {
 	spi_init_type spi_init_struct;
 	gpio_init_type gpio_initstructure;
-  crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
-	gpio_default_para_init(&gpio_initstructure);	
-	
+	crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
+	gpio_default_para_init(&gpio_initstructure);
+
 	gpio_initstructure.gpio_out_type       = GPIO_OUTPUT_PUSH_PULL;
-  gpio_initstructure.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
-  gpio_initstructure.gpio_pull           = GPIO_PULL_UP;
+	gpio_initstructure.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
+	gpio_initstructure.gpio_pull           = GPIO_PULL_UP;
 	gpio_initstructure.gpio_mode           = GPIO_MODE_MUX;
 	gpio_initstructure.gpio_pins           = GPIO_PINS_5 | GPIO_PINS_6 | GPIO_PINS_7;
-  gpio_init(GPIOA, &gpio_initstructure);
-	
+	gpio_init(GPIOA, &gpio_initstructure);
+
 	gpio_initstructure.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
-  gpio_initstructure.gpio_out_type  = GPIO_OUTPUT_PUSH_PULL;
-  gpio_initstructure.gpio_mode = GPIO_MODE_OUTPUT;
-  gpio_initstructure.gpio_pins = GPIO_PINS_4;
-  gpio_initstructure.gpio_pull = GPIO_PULL_NONE;
-  gpio_init(GPIOA, &gpio_initstructure);
+	gpio_initstructure.gpio_out_type  = GPIO_OUTPUT_PUSH_PULL;
+	gpio_initstructure.gpio_mode = GPIO_MODE_OUTPUT;
+	gpio_initstructure.gpio_pins = GPIO_PINS_4;
+	gpio_initstructure.gpio_pull = GPIO_PULL_NONE;
+	gpio_init(GPIOA, &gpio_initstructure);
 
 	gpio_bits_set(GPIOA,GPIO_PINS_4);
-	
+
 	spi_enable(SPI1, FALSE);
-	
+
 	crm_periph_clock_enable(CRM_SPI1_PERIPH_CLOCK, TRUE);
-  spi_default_para_init(&spi_init_struct);
-  spi_init_struct.transmission_mode = SPI_TRANSMIT_FULL_DUPLEX;
-  spi_init_struct.master_slave_mode = SPI_MODE_MASTER;
-  spi_init_struct.mclk_freq_division = SPI_MCLK_DIV_4;
-  spi_init_struct.first_bit_transmission = SPI_FIRST_BIT_MSB;
-  spi_init_struct.frame_bit_num = SPI_FRAME_8BIT;
-  spi_init_struct.clock_polarity = SPI_CLOCK_POLARITY_HIGH; // SPI_CLOCK_POLARITY_LOW SPI_CLOCK_POLARITY_HIGH
-  spi_init_struct.clock_phase = SPI_CLOCK_PHASE_2EDGE;      // SPI_CLOCK_PHASE_1EDGE SPI_CLOCK_PHASE_2EDGE
-  spi_init_struct.cs_mode_selection = SPI_CS_SOFTWARE_MODE;
-  spi_init(SPI1, &spi_init_struct);
-	
-  spi_enable(SPI1, TRUE);
+	spi_default_para_init(&spi_init_struct);
+	spi_init_struct.transmission_mode = SPI_TRANSMIT_FULL_DUPLEX;
+	spi_init_struct.master_slave_mode = SPI_MODE_MASTER;
+	spi_init_struct.mclk_freq_division = SPI_MCLK_DIV_4;
+	spi_init_struct.first_bit_transmission = SPI_FIRST_BIT_MSB;
+	spi_init_struct.frame_bit_num = SPI_FRAME_8BIT;
+	spi_init_struct.clock_polarity = SPI_CLOCK_POLARITY_HIGH; // SPI_CLOCK_POLARITY_LOW SPI_CLOCK_POLARITY_HIGH
+	spi_init_struct.clock_phase = SPI_CLOCK_PHASE_2EDGE;      // SPI_CLOCK_PHASE_1EDGE SPI_CLOCK_PHASE_2EDGE
+	spi_init_struct.cs_mode_selection = SPI_CS_SOFTWARE_MODE;
+	spi_init(SPI1, &spi_init_struct);
+
+	spi_enable(SPI1, TRUE);
 	delay_ms(10);
 } 
 

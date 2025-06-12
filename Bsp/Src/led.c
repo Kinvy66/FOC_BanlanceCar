@@ -7,7 +7,7 @@ void LED_Init(void)
 {
 	gpio_init_type gpio_init_struct;
 	crm_periph_clock_enable(CRM_GPIOA_PERIPH_CLOCK, TRUE);
-  crm_periph_clock_enable(CRM_GPIOC_PERIPH_CLOCK, TRUE);
+	crm_periph_clock_enable(CRM_GPIOC_PERIPH_CLOCK, TRUE);
 	gpio_default_para_init(&gpio_init_struct);
 
 	/* configure the led gpio */

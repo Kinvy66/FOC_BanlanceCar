@@ -10,6 +10,7 @@
     </MCUInfo>
     <ADC1>
         <Mode>
+            <ModeSub name="IN10" value="TRUE"/>
             <ModeSub name="IN14" value="TRUE"/>
             <ModeSub name="IN15" value="TRUE"/>
         </Mode>
@@ -205,7 +206,7 @@
         <PinSub pinname="PC15/LEXT_OUT" signalname="GPIO_Output" signaltype="3"/>
         <PinSub pinname="PD0/HEXT_IN" signalname="CRM_HEXT_IN" signaltype="2"/>
         <PinSub pinname="PD1/HEXT_OUT" signalname="CRM_HEXT_OUT" signaltype="2"/>
-        <PinSub pinname="PC0" signalname="ADC2_IN10" signaltype="2"/>
+        <PinSub pinname="PC0" signalname="ADC1_IN10 ADC2_IN10" signaltype="3"/>
         <PinSub pinname="PC1" signalname="ADC2_IN11" signaltype="3"/>
         <PinSub pinname="PC2" signalname="ADC2_IN12" signaltype="3"/>
         <PinSub pinname="PC3" signalname="ADC2_IN13" signaltype="3"/>
